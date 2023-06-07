@@ -35,7 +35,11 @@ const Modal = ({ show, setShowModal }) => {
           onSubmit={handleSubmit}
           className="w-full h-full flex flex-col gap-[10px]"
         >
-          <button className="right-0 top-2 absolute w-[70px] border border-black rounded-md ml-auto mr-5 hover:bg-red-400">
+          <button
+            type="button"
+            onClick={() => setShowModal(false)}
+            className="right-0 top-2 absolute w-[70px] border border-black rounded-md ml-auto mr-5 hover:bg-red-400"
+          >
             X
           </button>
           <Input placeholder="pet name" name="name" onChange={handleChange} />
