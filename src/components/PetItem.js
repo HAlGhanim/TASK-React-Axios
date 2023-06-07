@@ -11,7 +11,7 @@ const PetItem = ({ pet }) => {
       <h1 className="text-md font-bold">{pet.name}</h1>
       <img
         src={pet.image}
-        alt={`${pet.name}-image`}
+        alt={pet.name}
         className="w-[200px] rounded-md
           "
       />

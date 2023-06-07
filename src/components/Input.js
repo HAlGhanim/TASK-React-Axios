@@ -5,6 +5,7 @@ const Input = ({ name, onChange }) => {
     <div className="flex justify-center ">
       <h1 className="w-[25%]">{name}</h1>
       <input
+        name={name}
         onChange={onChange}
         className="w-[70%] border pl-2 border-black rounded-md"
         placeholder={name}
