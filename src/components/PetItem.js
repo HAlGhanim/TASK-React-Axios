@@ -1,10 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { deletePet } from "../api/pets";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const PetItem = ({ pet }) => {
-  const handleDelete = () => {
-    deletePet(pet.id);
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: () => deletePet(pet.id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["pets"] });
+    },
+  });
+  const handleDelete = (e) => {
+    e.preventDefault();
+    mutation.mutate();
   };
   return (
     <div className="w-[300px] h-[400px]  border border-black rounded-md flex flex-col justify-between items-center p-4">

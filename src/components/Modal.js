@@ -42,14 +42,10 @@ const Modal = ({ show, setShowModal }) => {
           >
             X
           </button>
-          <Input placeholder="pet name" name="name" onChange={handleChange} />
-          <Input placeholder="pet type" name="type" onChange={handleChange} />
-          <Input placeholder="pet image" name="image" onChange={handleChange} />
-          <Input
-            placeholder="pet adopted"
-            name="adopted"
-            onChange={handleChange}
-          />
+          <Input name="name" onChange={handleChange} />
+          <Input name="type" onChange={handleChange} />
+          <Input name="image" onChange={handleChange} />
+          <Input name="adopted" onChange={handleChange} />
 
           <button
             type="submit"

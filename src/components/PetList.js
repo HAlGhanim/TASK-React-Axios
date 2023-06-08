@@ -8,14 +8,14 @@ const PetList = () => {
   const [query, setQuery] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  const { data, isLoading } = useQuery({
+  const { data: allPets, isLoading } = useQuery({
     queryKey: ["pets"],
     queryFn: () => getAllPets(),
   });
   if (isLoading) {
     return <h1>Loading ...</h1>;
   }
-  const petList = data
+  const petList = allPets
     ?.filter((pet) => pet.name.toLowerCase().includes(query.toLowerCase()))
     .map((pet) => <PetItem pet={pet} key={pet.id} />);
   return (
